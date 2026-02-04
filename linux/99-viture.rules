@@ -1,0 +1,13 @@
+# Viture XR Glasses udev rules
+# Place in /etc/udev/rules.d/99-viture.rules
+# Then run: sudo udevadm control --reload-rules
+
+# Viture HDMI XR Adapter (if it has USB component for control)
+# Note: The HDMI XR Adapter primarily uses HDMI signal, 
+# these rules are for any USB control interface if present
+
+# Allow users in 'video' group to access Viture devices
+SUBSYSTEM=="usb", ATTR{idVendor}=="35bd", MODE="0666", GROUP="video"
+
+# Automatic display configuration could be triggered here
+# but HDMI hotplug is usually handled by the display manager
